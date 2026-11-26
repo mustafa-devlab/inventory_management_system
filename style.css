@@ -1,0 +1,175 @@
+:root {
+  --bg: #eef2f1;
+  --ink: #17302e;
+  --muted: #6a7f7c;
+  --line: #dde6e4;
+  --primary: #0f5f5a;
+  --amber: #b86e00;
+  --red: #b3261e;
+  --green: #1d7a46;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--ink);
+  font-family: "Segoe UI", Roboto, Helvetica, Arial, sans-serif;
+  line-height: 1.5;
+}
+
+.topbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  gap: 16px;
+  padding: 18px 32px;
+  background: var(--primary);
+  color: #fff;
+}
+
+.brand { display: flex; align-items: center; gap: 14px; }
+.brand h1 { margin: 0; font-size: 1.4rem; line-height: 1.2; }
+.brand p { margin: 0; font-size: 0.85rem; opacity: 0.8; }
+
+.logo {
+  display: grid;
+  place-items: center;
+  width: 42px;
+  height: 42px;
+  border-radius: 10px;
+  background: #fff;
+  color: var(--primary);
+  font-size: 1.4rem;
+  font-weight: 700;
+}
+
+main { max-width: 1150px; margin: 0 auto; padding: 24px 20px 48px; }
+
+.btn {
+  border: 1px solid transparent;
+  border-radius: 8px;
+  padding: 9px 18px;
+  font: inherit;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.btn-primary { background: #f2b33d; color: #2a1c00; }
+.btn-primary:hover { background: #e9a622; }
+.btn-light { background: none; border-color: var(--line); color: var(--muted); }
+.btn-light:hover { background: var(--bg); }
+
+.summary {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 8px 32px;
+  margin: 0 0 20px;
+}
+
+.summary b { font-size: 1.1rem; }
+.summary span:last-child b { color: var(--amber); }
+
+.panel { background: #fff; border-radius: 12px; padding: 20px; }
+
+.toolbar { display: flex; flex-wrap: wrap; align-items: center; gap: 12px; margin-bottom: 16px; }
+.toolbar input[type="search"] { flex: 1 1 260px; }
+
+input, select {
+  font: inherit;
+  color: inherit;
+  padding: 9px 12px;
+  border: 1px solid var(--line);
+  border-radius: 8px;
+  background: #fff;
+}
+
+input:focus, select:focus, button:focus-visible {
+  outline: 3px solid rgba(15, 95, 90, 0.35);
+  outline-offset: 1px;
+}
+
+.check { display: flex; align-items: center; gap: 8px; cursor: pointer; }
+
+.table-wrap { overflow-x: auto; }
+table { width: 100%; min-width: 760px; border-collapse: collapse; }
+th, td { padding: 12px 10px; text-align: left; border-bottom: 1px solid var(--line); }
+th { color: var(--muted); font-size: 0.85rem; font-weight: 600; }
+.num { text-align: right; }
+
+tr.low td { background: #fff3d6; }
+tr.out td { background: #fde4e1; }
+
+.qty { display: inline-flex; align-items: center; gap: 8px; }
+
+.icon-btn {
+  width: 26px;
+  height: 26px;
+  border: 1px solid var(--line);
+  border-radius: 6px;
+  background: #fff;
+  cursor: pointer;
+}
+
+.icon-btn:hover { background: var(--bg); }
+
+.badge { display: inline-block; padding: 2px 10px; border-radius: 999px; font-size: 0.8rem; font-weight: 600; }
+.badge-ok { background: #dff3e7; color: var(--green); }
+.badge-low { background: #ffe0a3; color: var(--amber); }
+.badge-out { background: #f9c4bf; color: var(--red); }
+
+.row-actions { white-space: nowrap; text-align: right; }
+
+.link-btn {
+  border: none;
+  background: none;
+  padding: 4px 6px;
+  font: inherit;
+  font-weight: 600;
+  color: var(--primary);
+  cursor: pointer;
+}
+
+.link-btn.danger { color: var(--red); }
+.link-btn:hover { text-decoration: underline; }
+
+.empty { margin: 0; padding: 28px 0 12px; text-align: center; color: var(--muted); }
+
+dialog {
+  width: min(440px, 92vw);
+  border: none;
+  border-radius: 14px;
+  padding: 26px;
+  box-shadow: 0 20px 50px rgba(10, 40, 38, 0.3);
+}
+
+dialog::backdrop { background: rgba(10, 40, 38, 0.45); }
+dialog h2 { margin: 0 0 18px; }
+dialog label { display: block; margin-bottom: 14px; font-size: 0.9rem; font-weight: 600; }
+dialog input { width: 100%; margin-top: 5px; font-weight: 400; }
+
+.row { display: flex; gap: 14px; }
+.row label { flex: 1; }
+
+.form-error { margin: 0 0 12px; color: var(--red); font-size: 0.9rem; }
+
+.form-actions { display: flex; justify-content: flex-end; gap: 10px; }
+.form-actions .btn-primary { background: var(--primary); color: #fff; }
+.form-actions .btn-primary:hover { background: #0a4743; }
+
+.toast {
+  position: fixed;
+  left: 50%;
+  bottom: 28px;
+  transform: translateX(-50%);
+  padding: 10px 20px;
+  border-radius: 8px;
+  background: var(--ink);
+  color: #fff;
+}
+
+@media (max-width: 600px) {
+  .topbar { padding: 16px 18px; }
+  .row { flex-direction: column; gap: 0; }
+}
